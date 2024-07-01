@@ -1,7 +1,7 @@
 import 'package:fl_lib/fl_lib.dart';
-import 'package:toolbox/data/model/app/menu/server_func.dart';
-import 'package:toolbox/data/model/app/server_detail_card.dart';
-import 'package:toolbox/data/model/ssh/virtual_key.dart';
+import 'package:server_box/data/model/app/menu/server_func.dart';
+import 'package:server_box/data/model/app/server_detail_card.dart';
+import 'package:server_box/data/model/ssh/virtual_key.dart';
 
 import '../model/app/net_view.dart';
 import '../res/default.dart';
@@ -265,8 +265,6 @@ class SettingStore extends PersistentStore {
 
   late final horizonVirtKey = property('horizonVirtKey', false);
 
-  late final collectUsage = property('collectUsage', true);
-
   /// general wake lock
   late final generalWakeLock = property('generalWakeLock', false);
 
@@ -277,6 +275,12 @@ class SettingStore extends PersistentStore {
   late final serverLogoUrl = property('serverLogoUrl', '');
 
   late final betaTest = property('betaTest', false);
+
+  /// If it's empty, skip change window size.
+  /// Format: {width}x{height}
+  late final windowSize = property('windowSize', '');
+
+  late final showIntro = property('showIntro', true);
 
   // Never show these settings for users
   //

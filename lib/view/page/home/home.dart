@@ -1,22 +1,20 @@
 import 'dart:convert';
 
-import 'package:after_layout/after_layout.dart';
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:toolbox/core/channel/home_widget.dart';
-import 'package:toolbox/core/extension/build.dart';
-import 'package:toolbox/core/extension/context/locale.dart';
-import 'package:toolbox/core/route.dart';
-import 'package:toolbox/data/model/app/tab.dart';
-import 'package:toolbox/data/res/build_data.dart';
-import 'package:toolbox/data/res/github_id.dart';
-import 'package:toolbox/data/res/misc.dart';
-import 'package:toolbox/data/res/provider.dart';
-import 'package:toolbox/data/res/store.dart';
-import 'package:toolbox/data/res/url.dart';
-import 'package:toolbox/view/page/ssh/page.dart';
+import 'package:server_box/core/channel/home_widget.dart';
+import 'package:server_box/core/extension/build.dart';
+import 'package:server_box/core/extension/context/locale.dart';
+import 'package:server_box/core/route.dart';
+import 'package:server_box/data/model/app/tab.dart';
+import 'package:server_box/data/res/build_data.dart';
+import 'package:server_box/data/res/github_id.dart';
+import 'package:server_box/data/res/misc.dart';
+import 'package:server_box/data/res/provider.dart';
+import 'package:server_box/data/res/store.dart';
+import 'package:server_box/data/res/url.dart';
+import 'package:server_box/view/page/ssh/page.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 part 'appbar.dart';
@@ -60,9 +58,6 @@ class _HomePageState extends State<HomePage>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    context.setLibL10n();
-    final appL10n = AppLocalizations.of(context);
-    if (appL10n != null) l10n = appL10n;
     _isLandscape.value =
         MediaQuery.of(context).orientation == Orientation.landscape;
   }
@@ -224,17 +219,10 @@ class _HomePageState extends State<HomePage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildIcon(),
-          TextButton(
-            onPressed: () => context.showRoundDialog(
-              title: BuildDataX.versionStr,
-              child: const Text(
-                  '${BuildData.buildAt}\nFlutter ${BuildData.engine}'),
-            ),
-            child: const Text(
-              '${BuildData.name}\n${BuildDataX.versionStr}',
-              textAlign: TextAlign.center,
-              style: UIs.text15,
-            ),
+          const Text(
+            '${BuildData.name}\n${BuildDataX.versionStr}',
+            textAlign: TextAlign.center,
+            style: UIs.text15,
           ),
           const SizedBox(height: 37),
           _buildTiles(),

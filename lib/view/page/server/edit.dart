@@ -4,13 +4,13 @@ import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:toolbox/core/extension/context/locale.dart';
-import 'package:toolbox/data/model/app/shell_func.dart';
-import 'package:toolbox/data/model/server/custom.dart';
-import 'package:toolbox/data/model/server/wol_cfg.dart';
-import 'package:toolbox/data/res/provider.dart';
-import 'package:toolbox/data/res/store.dart';
-import 'package:toolbox/data/res/url.dart';
+import 'package:server_box/core/extension/context/locale.dart';
+import 'package:server_box/data/model/app/shell_func.dart';
+import 'package:server_box/data/model/server/custom.dart';
+import 'package:server_box/data/model/server/wol_cfg.dart';
+import 'package:server_box/data/res/provider.dart';
+import 'package:server_box/data/res/store.dart';
+import 'package:server_box/data/res/url.dart';
 
 import '../../../core/route.dart';
 import '../../../data/model/server/server_private_info.dart';
@@ -423,7 +423,7 @@ class _ServerEditPageState extends State<ServerEditPage> {
           type: TextInputType.url,
           icon: MingCute.web_line,
           node: node,
-          label: l10n.addr,
+          label: 'URL',
           hint: addr,
         ),
       ),
@@ -486,7 +486,7 @@ class _ServerEditPageState extends State<ServerEditPage> {
       Input(
         controller: _wolMacCtrl,
         type: TextInputType.text,
-        label: 'Mac ${l10n.addr}',
+        label: 'MAC ${l10n.addr}',
         icon: Icons.computer,
         hint: '00:11:22:33:44:55',
       ),
